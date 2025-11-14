@@ -1,25 +1,23 @@
-/* =========================================
-   PHẦN 1: CÀI ĐẶT CƠ BẢN VÀ GIAO DIỆN CHUNG
-   ========================================= */
+
 
 /* Cài đặt cơ bản và màu nền */
 body {
     font-family: Arial, sans-serif;
-    background-color: #f4f7f6; /* Màu nền xám rất nhạt cho hiện đại */
+    background-color: #f4f7f6; 
     color: #333;
     line-height: 1.6;
     margin: 0;
     padding: 0;
 }
 
-/* Màu chủ đạo cho Header hoặc Navigation */
+
 .header {
-    background-color: #25A18E; /* MÀU CHỦ ĐẠO CỦA BẠN */
+    background-color: #25A18E; 
     padding: 15px 30px;
     color: #FFFFFF; /* Chữ màu trắng */
     text-align: center;
     box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-    position: relative; /* Cần thiết để định vị nút đăng xuất */
+    position: relative; 
 }
 
 .header h1 {
@@ -33,7 +31,7 @@ body {
     max-width: 900px;
     margin: 30px auto; /* Căn giữa */
     padding: 20px;
-    background-color: #FFFFFF; /* Nền trắng hiện đại */
+    background-color: #FFFFFF; 
     border-radius: 8px;
     box-shadow: 0 4px 10px rgba(0,0,0,0.05);
 }
@@ -42,7 +40,7 @@ body {
 form {
     display: flex;
     flex-direction: column;
-    gap: 15px; /* Khoảng cách giữa các ô input */
+    gap: 15px; /
 }
 
 .form-group {
@@ -69,7 +67,7 @@ form {
 
 /* Nút bấm (Button) với màu chủ đạo */
 .btn {
-    background-color: #25A18E; /* MÀU CHỦ ĐẠO */
+    background-color: #25A18E; 
     color: #FFFFFF;
     padding: 12px 20px;
     border: none;
@@ -81,7 +79,7 @@ form {
 }
 
 .btn:hover {
-    background-color: #1e8a77; /* Hơi đậm hơn khi di chuột */
+    background-color: #1e8a77; 
 }
 
 /* Link (ví dụ: "Chuyển sang đăng nhập") */
@@ -112,15 +110,13 @@ a:hover {
     margin-bottom: 15px;
 }
 
-/* =========================================
-   PHẦN 2: BỔ SUNG CHO DASHBOARD
-   ========================================= */
+
 
 /* Thông tin người dùng ở Header */
 .user-info {
     position: absolute;
-    top: 50%; /* Căn giữa theo chiều dọc */
-    transform: translateY(-50%); /* Căn giữa theo chiều dọc */
+    top: 50%; 
+    transform: translateY(-50%); 
     right: 30px;
     color: #FFFFFF;
     font-size: 16px;
@@ -227,11 +223,11 @@ th {
     font-size: 13px;
     margin-right: 5px; 
     cursor: pointer;
-    transition: all 0.3s ease; /* Hiệu ứng mượt */
+    transition: all 0.3s ease; 
 }
 .btn-edit:hover {
-    background-color: #007bff; /* Nền xanh khi di chuột */
-    color: #fff; /* Chữ trắng khi di chuột */
+    background-color: #007bff; 
+    color: #fff; 
     text-decoration: none;
 }
 
@@ -245,11 +241,11 @@ th {
     text-decoration: none;
     font-size: 13px;
     cursor: pointer;
-    transition: all 0.3s ease; /* Hiệu ứng mượt */
+    transition: all 0.3s ease; 
 }
 .btn-delete:hover {
-    background-color: #dc3545; /* Nền đỏ khi di chuột */
-    color: #fff; /* Chữ trắng khi di chuột */
+    background-color: #dc3545; 
+    color: #fff; 
     text-decoration: none;
 }
 
