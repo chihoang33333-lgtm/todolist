@@ -1,0 +1,261 @@
+/* =========================================
+   PHẦN 1: CÀI ĐẶT CƠ BẢN VÀ GIAO DIỆN CHUNG
+   ========================================= */
+
+/* Cài đặt cơ bản và màu nền */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f7f6; /* Màu nền xám rất nhạt cho hiện đại */
+    color: #333;
+    line-height: 1.6;
+    margin: 0;
+    padding: 0;
+}
+
+/* Màu chủ đạo cho Header hoặc Navigation */
+.header {
+    background-color: #25A18E; /* MÀU CHỦ ĐẠO CỦA BẠN */
+    padding: 15px 30px;
+    color: #FFFFFF; /* Chữ màu trắng */
+    text-align: center;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    position: relative; /* Cần thiết để định vị nút đăng xuất */
+}
+
+.header h1 {
+    margin: 0;
+    font-size: 24px;
+}
+
+/* Thùng chứa nội dung chính */
+.container {
+    width: 80%;
+    max-width: 900px;
+    margin: 30px auto; /* Căn giữa */
+    padding: 20px;
+    background-color: #FFFFFF; /* Nền trắng hiện đại */
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+}
+
+/* Định dạng cho Form (Đăng ký, Đăng nhập, Thêm task) */
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px; /* Khoảng cách giữa các ô input */
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+}
+
+.form-group label {
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+.form-group input[type="text"],
+.form-group input[type="password"],
+.form-group input[type="email"],
+.form-group input[type="date"],
+.form-group textarea,
+.form-group select {
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 16px;
+}
+
+/* Nút bấm (Button) với màu chủ đạo */
+.btn {
+    background-color: #25A18E; /* MÀU CHỦ ĐẠO */
+    color: #FFFFFF;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: bold;
+    transition: background-color 0.3s ease;
+}
+
+.btn:hover {
+    background-color: #1e8a77; /* Hơi đậm hơn khi di chuột */
+}
+
+/* Link (ví dụ: "Chuyển sang đăng nhập") */
+a {
+    color: #25A18E;
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+/* Thông báo lỗi */
+.error {
+    color: #D8000C;
+    background-color: #FFD2D2;
+    padding: 10px;
+    border-radius: 5px;
+    margin-bottom: 15px;
+}
+
+/* Thông báo thành công */
+.success {
+    color: #270;
+    background-color: #DFF2BF;
+    padding: 10px;
+    border-radius: 5px;
+    margin-bottom: 15px;
+}
+
+/* =========================================
+   PHẦN 2: BỔ SUNG CHO DASHBOARD
+   ========================================= */
+
+/* Thông tin người dùng ở Header */
+.user-info {
+    position: absolute;
+    top: 50%; /* Căn giữa theo chiều dọc */
+    transform: translateY(-50%); /* Căn giữa theo chiều dọc */
+    right: 30px;
+    color: #FFFFFF;
+    font-size: 16px;
+}
+.user-info .logout-btn {
+    color: #FFFFFF;
+    text-decoration: underline;
+    margin-left: 10px;
+}
+.user-info .logout-btn:hover {
+    color: #f0f0f0;
+}
+
+/* Khu vực thêm công việc */
+.task-form {
+    padding-bottom: 20px;
+    border-bottom: 2px solid #eee;
+}
+
+/* Form lọc và sắp xếp */
+.filter-form {
+    display: flex; 
+    gap: 20px; 
+    align-items: flex-end; 
+    flex-wrap: wrap; 
+    margin-bottom: 20px;
+    background-color: #f9f9f9; 
+    padding: 15px;
+    border-radius: 5px;
+}
+.filter-form .form-group {
+    margin-bottom: 0;
+}
+.filter-form .btn-filter {
+    padding: 10px 15px;
+    background-color: #555; /* Nút màu xám đậm */
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+.filter-form .btn-filter:hover {
+    background-color: #333;
+}
+
+/* Bảng danh sách công việc */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+th, td {
+    border: 1px solid #ddd;
+    padding: 12px;
+    text-align: left;
+    vertical-align: top;
+}
+th {
+    background-color: #f4f4f4;
+}
+
+/* Định dạng các hàng công việc */
+.task-item.pending {
+    /* Mặc định (để trống) */
+}
+.task-item.in_progress {
+    background-color: #fffbe6; /* Màu vàng nhạt cho "đang làm" */
+}
+.task-item.completed {
+    background-color: #f0fff0; /* Màu xanh lá nhạt cho "hoàn thành" */
+}
+.task-item.completed td:nth-child(2), /* Tiêu đề */
+.task-item.completed td:nth-child(3) { /* Mô tả */
+    text-decoration: line-through;
+    color: #888;
+}
+
+/* Nút hành động (Trạng thái) */
+.btn-status {
+    display: inline-block;
+    padding: 8px 12px;
+    border-radius: 5px;
+    color: #fff;
+    font-weight: bold;
+    text-decoration: none;
+    font-size: 13px;
+    background-color: #ffa500; /* Màu cam cho 'pending' */
+}
+.task-item.in_progress .btn-status {
+    background-color: #1e90ff; /* Màu xanh dương cho 'in_progress' */
+}
+.task-item.completed .btn-status {
+    background-color: #28a745; /* Màu xanh lá cho 'completed' */
+}
+
+/* Nút hành động (Sửa - Kiểu viền) */
+.btn-edit {
+    color: #007bff; /* Chữ màu xanh */
+    background-color: transparent; /* Nền trong suốt */
+    border: 1px solid #007bff; /* Viền màu xanh */
+    padding: 8px 12px;
+    border-radius: 5px;
+    text-decoration: none;
+    font-size: 13px;
+    margin-right: 5px; 
+    cursor: pointer;
+    transition: all 0.3s ease; /* Hiệu ứng mượt */
+}
+.btn-edit:hover {
+    background-color: #007bff; /* Nền xanh khi di chuột */
+    color: #fff; /* Chữ trắng khi di chuột */
+    text-decoration: none;
+}
+
+/* Nút hành động (Xóa - Kiểu viền) */
+.btn-delete {
+    color: #dc3545; /* Chữ màu đỏ */
+    background-color: transparent; /* Nền trong suốt */
+    border: 1px solid #dc3545; /* Viền màu đỏ */
+    padding: 8px 12px;
+    border-radius: 5px;
+    text-decoration: none;
+    font-size: 13px;
+    cursor: pointer;
+    transition: all 0.3s ease; /* Hiệu ứng mượt */
+}
+.btn-delete:hover {
+    background-color: #dc3545; /* Nền đỏ khi di chuột */
+    color: #fff; /* Chữ trắng khi di chuột */
+    text-decoration: none;
+}
+
+/* Căn giữa và đổi màu 2 tiêu đề h2 trên Dashboard */
+.task-form h2,
+.task-list h2 {
+    text-align: center; 
+    color: #227e70;      
+}
