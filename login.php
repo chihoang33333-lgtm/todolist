@@ -8,7 +8,7 @@ $msg_class = '';
 
 // Kiểm tra xem người dùng đã đăng nhập chưa, nếu rồi thì chuyển hướng
 if (isset($_SESSION["user_id"])) {
-    header("Location: dashboard.php"); // Trang dashboard chúng ta sẽ tạo tiếp theo
+    header("Location: dashboard.php"); 
     exit;
 }
 
@@ -36,7 +36,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             if ($user && password_verify($password, $user['password'])) {
                 
                 // 4. Đăng nhập thành công: Lưu thông tin vào SESSION
-                // Chúng ta chỉ lưu ID và Tên đăng nhập
+                
                 $_SESSION["user_id"] = $user['id'];
                 $_SESSION["username"] = $user['username'];
 
