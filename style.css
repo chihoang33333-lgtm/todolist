@@ -184,7 +184,7 @@ th {
 
 /* Định dạng các hàng công việc */
 .task-item.pending {
-    /* Mặc định (để trống) */
+    /* Mặc định  */
 }
 .task-item.in_progress {
     background-color: #fffbe6; /* Màu vàng nhạt cho "đang làm" */
